@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <th>Projects</th>
+  </tr>
+
+<% @projects.each do |project| %>
+  <tr>
+    <td><%= link_to project.title, project %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<%= link_to '+ Project', new_project_path %>
