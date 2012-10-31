@@ -39,3 +39,6 @@ gem 'jquery-rails'
 group :development do
   gem 'thin'
 end
+
+gem 'devise'
+gem 'simple_form'
