@@ -42,3 +42,6 @@ end
 
 gem 'devise'
 gem 'simple_form'
+
+# rails console doesn't want to work without update to rc.4
+gem 'eventmachine', '1.0.0.rc.4'
