@@ -12,22 +12,19 @@
 <body>
 <div id="main" role="main">
   <div class="container">
-    <div class="login">
-
+    <div class="hero-unit">
+      <h1>The timetracker</h1>
     </div>
     <div class="content">
       <div class="row">
-        <div class="span4">
-          <ul>
-            <li>prject</li>
-            <li>project</li>
-            <li>project</li>
-          </ul>
+
+        <div class="span2">
+          <% if user_signed_in? %>
+            <%= render :partial => "projects/my", :locals => { :projects => @my_projects} unless @my_projects.nil? %>
+          <% end %>
         </div>
-        <div class="span8">
-          <%=
-              #render 'layouts/messages'
-          %>
+        <div class="span10">
+          <%= render 'layouts/messages' %>
           <%= yield %>
         </div>
       </div>

@@ -1,20 +1,9 @@
 class IssuesController < ApplicationController
-  # GET /issues
-  # GET /issues.json
-  def index
-    @issues = Issue.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @issues }
-    end
-  end
-
+  before_filter :load_general_data, :only => [:show, :new, :edit, :create]
   # GET /issues/1
   # GET /issues/1.json
   def show
-    @issue = Issue.find(params[:id])
-
+    @issue = current_user.issues.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @issue }
@@ -24,7 +13,7 @@ class IssuesController < ApplicationController
   # GET /issues/new
   # GET /issues/new.json
   def new
-    @issue = Issue.new
+    @issue = Issue.new(:project_id => params[:project_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,7 +23,7 @@ class IssuesController < ApplicationController
 
   # GET /issues/1/edit
   def edit
-    @issue = Issue.find(params[:id])
+    @issue = current_user.issues.find(params[:id])
   end
 
   # POST /issues
@@ -72,7 +61,7 @@ class IssuesController < ApplicationController
   # DELETE /issues/1
   # DELETE /issues/1.json
   def destroy
-    @issue = Issue.find(params[:id])
+    @issue = current_user.issues.find(params[:id])
     @issue.destroy
 
     respond_to do |format|

@@ -1,15 +1,31 @@
-<p id="notice"><%= notice %></p>
-
+<h4>
+  <%= @project.title %> <sup class="small"><%= link_to 'Edit', edit_project_path(@project) %> | <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Destroy project and all related issues?' } %></sup>
+</h4>
 <p>
-  <b>Title:</b>
-  <%= @project.title %>
-</p>
-
-<p>
-  <b>Description:</b>
   <%= @project.description %>
 </p>
+<br>
+<h5>
+  Issues:<sup class="small"> <%= link_to 'Add issue', new_issue_path(:project_id => @project.id) %> </sup>
+</h5>
+<% unless @project.issues.empty? %>
+    <table class="table table-striped">
+      <tr>
+            <th>
+              Title
+            </th>
+            <th>
+              Status
+            </th>
+          </tr>
+      <% @project.issues.each do |issue| %>
+          <tr>
+            <td><%= link_to issue.title, issue_path(issue) %></td>
+            <td><%= 'issue.status' %></td>
+          </tr>
+
+      <% end %>
+    </table>
+<% end %>
 
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>

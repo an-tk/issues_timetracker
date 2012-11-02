@@ -1,20 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
+<h3>
   <%= @issue.title %>
-</p>
-
+</h3>
 <p>
-  <b>Description:</b>
   <%= @issue.description %>
 </p>
-
-<p>
-  <b>Project:</b>
-  <%= @issue.project_id %>
-</p>
-
-
 <%= link_to 'Edit', edit_issue_path(@issue) %> |
-<%= link_to 'Back', issues_path %>
+<%= link_to 'Destroy', @issue, method: :delete, data: { confirm: 'Are you sure?' } %>
