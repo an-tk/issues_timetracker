@@ -65,7 +65,7 @@ class IssuesController < ApplicationController
     @issue.destroy
 
     respond_to do |format|
-      format.html { redirect_to issues_url }
+      format.html { redirect_to root_url }
       format.json { head :no_content }
     end
   end
