@@ -1,15 +1,15 @@
-<% unless projects.empty? %>
     <ul class="nav nav-pills nav-stacked">
-      <li class="nav-header">My projects</li>
-      <% projects.each do |project|%>
+    <li class="nav-header">My projects</li>
+      <% unless projects.empty? %>
+        <% projects.each do |project|%>
           <li>
             <%= link_to project.title, project %>
           </li>
+        <% end %>
       <% end %>
       <li>
-        <%= link_to '+ Project', new_project_path, :class => "muted" %>
+      <%= link_to '+ Project', new_project_path, :class => "muted" %>
       </li>
     </ul>
-<% end %>
 
 
