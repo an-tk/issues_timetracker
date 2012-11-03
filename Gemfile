@@ -37,10 +37,8 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
-group :development do
-  gem 'thin'
-end
 
+gem 'thin'
 gem 'devise'
 gem 'simple_form'
 
