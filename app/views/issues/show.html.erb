@@ -6,5 +6,16 @@
 <p>
   <%= @issue.description %>
 </p>
+<p id="issue-<%= @issue.id %>">
+
+<div>
+  timer:
+  <span class="actions">
+    <%= render :partial => 'issues/actions', :locals => {:issue => @issue} %>
+  </span>
+</div>
+  already spent time <span class="spent-time"><%= @issue.time_spent_str %></span>
+</p>
+
 <%= link_to 'Edit', edit_issue_path(@issue) %> |
 <%= link_to 'Destroy', @issue, method: :delete, data: { confirm: 'Are you sure?' } %>

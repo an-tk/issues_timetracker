@@ -1,0 +1,3 @@
+var issue = $('#issue-<%= issue.id %>')
+$('.actions', issue).html('<%= j(render :partial => "issues/actions", :locals => {:issue => issue}) %>');
+$('.spent-time', issue).html('<%= issue.time_spent_str %>');

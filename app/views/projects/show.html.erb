@@ -15,13 +15,21 @@
               Title
             </th>
             <th>
-              Status
+              Timer
+            </th>
+            <th>
+              Time spent
             </th>
           </tr>
-      <% @project.issues.each do |issue| %>
-          <tr>
+      <% @project.issues.order(:id).each do |issue| %>
+          <tr id="issue-<%= issue.id %>">
             <td><%= link_to issue.title, issue_path(issue) %></td>
-            <td><%= 'issue.status' %></td>
+            <td class="actions">
+              <%= render :partial => 'issues/actions', :locals => {:issue => issue} %>
+            </td>
+            <td class="spent-time">
+              <%= issue.time_spent_str %>
+            </td>
           </tr>
 
       <% end %>
