@@ -61,6 +61,17 @@ IssuesTimetracker::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
+  config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: "gmail.com",
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: 'login: test.app.timetracker@gmail.com',
+      password: '25112511q'
+  }
+
+
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5

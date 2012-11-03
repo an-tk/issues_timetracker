@@ -1,10 +1,9 @@
 class Issue < ActiveRecord::Base
   attr_accessor :creator
   attr_accessible :description, :project_id, :title
-  attr_accessible :spent_time, :as => :system
 
   belongs_to :project
-  has_one :time_tracker
+  has_one :time_tracker, :dependent => :destroy
 
   validates :title, :presence => true
   validate :manage_only_own_projects

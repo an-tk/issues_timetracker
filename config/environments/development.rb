@@ -42,7 +42,7 @@ IssuesTimetracker::Application.configure do
       domain: "gmail.com",
       authentication: "plain",
       enable_starttls_auto: true,
-      user_name: ENV["GMAIL_USERNAME"],
-      password: ENV["GMAIL_PASSWORD"]
+      user_name: 'login: test.app.timetracker@gmail.com',
+      password: '25112511q'
   }
 end
